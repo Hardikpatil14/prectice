@@ -1,0 +1,10 @@
+div{
+    display: inline-block;
+    border: 5px solid black;
+  margin: 10px;
+  border-radius: 50px;
+  box-shadow:0 0 20px rgb(255, 221, 0);
+}
+body{
+    display: flex;
+}
