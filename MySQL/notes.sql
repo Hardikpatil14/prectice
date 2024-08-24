@@ -848,3 +848,13 @@ mysql> delete from client_master where sate=Tamilnadu;
 ERROR 1054 (42S22): Unknown column 'Tamilnadu' in 'where clause'
 mysql> delete from client_master where sate='Tamilnadu';
 Query OK, 1 row affected (0.01 sec)
+
+
+
+create table student7(
+    id int,
+    name varchar(10),
+    contectNO numeric(10),
+    cours_id int,
+    constraint pk_stud_id primary key(id),
+    constraint fk_stud_course_id foreign key(cours_id) references course(cours_id));
