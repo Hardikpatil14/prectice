@@ -623,3 +623,228 @@ mysql> select*from client_master;
 |         6 | Deepak Sharma  | surat  |  560050 | Karnataka  |      0 |
 +-----------+----------------+--------+---------+------------+--------+
 5 rows in set (0.00 sec)
+
+
+
+-- 24/8/24 class work 
+mysql> selct * from client_master;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct * from client_master' at line 1
+mysql> select * from client_master;
++-----------+----------------+----------+---------+------------+--------+
+| client_no | name           | city     | pincode | sate       | Baldue |
++-----------+----------------+----------+---------+------------+--------+
+|         1 | lvan Byross    | surat    |  400054 | maharashtr |  15000 |
+|         2 | Mamta Muzumdar | surat    |  780001 | maharashtr |      0 |
+|         3 | Chhaya Bankar  | mumbai   |  400057 | Tamilnadu  |   5000 |
+|         5 | Hansel Colaco  | madras   |  400060 | maharashtr |   2000 |
+|         6 | Deepak Sharma  | Banglore |  560050 | Karnataka  |      0 |
++-----------+----------------+----------+---------+------------+--------+
+5 rows in set (0.04 sec)
+
+mysql> select name from client_master;
++----------------+
+| name           |
++----------------+
+| lvan Byross    |
+| Mamta Muzumdar |
+| Chhaya Bankar  |
+| Hansel Colaco  |
+| Deepak Sharma  |
++----------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from client_master;
++-----------+----------------+----------+---------+------------+--------+
+| client_no | name           | city     | pincode | sate       | Baldue |
++-----------+----------------+----------+---------+------------+--------+
+|         1 | lvan Byross    | surat    |  400054 | maharashtr |  15000 |
+|         2 | Mamta Muzumdar | surat    |  780001 | maharashtr |      0 |
+|         3 | Chhaya Bankar  | mumbai   |  400057 | Tamilnadu  |   5000 |
+|         5 | Hansel Colaco  | madras   |  400060 | maharashtr |   2000 |
+|         6 | Deepak Sharma  | Banglore |  560050 | Karnataka  |      0 |
++-----------+----------------+----------+---------+------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select name,city,sate from client_master;
++----------------+----------+------------+
+| name           | city     | sate       |
++----------------+----------+------------+
+| lvan Byross    | surat    | maharashtr |
+| Mamta Muzumdar | surat    | maharashtr |
+| Chhaya Bankar  | mumbai   | Tamilnadu  |
+| Hansel Colaco  | madras   | maharashtr |
+| Deepak Sharma  | Banglore | Karnataka  |
++----------------+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from product_master;
++--------+-------------+----------------+--------------+-------------+------------+------------+------------+
+| pro_no | Description | profit_percent | unit_measure | qty_on_hand | reorderLv1 | sell_price | cost_price |
++--------+-------------+----------------+--------------+-------------+------------+------------+------------+
+|      1 | T-shirt     |              5 | piece        |         200 |         50 |        350 |        250 |
+|      2 | shirt       |              6 | piece        |         150 |         50 |        500 |        350 |
+|   6734 | jeans       |              5 | piece        |         100 |         20 |        600 |        450 |
+|   7865 | jeans       |              5 | piece        |         100 |         20 |        750 |        500 |
+|   7868 | trousers    |              2 | piece        |         150 |         50 |        850 |        550 |
+|   7885 | pullovers   |             25 | piece        |          80 |         30 |        700 |        450 |
+|   7965 | denimshirt  |              4 | piece        |         100 |         40 |        350 |        250 |
+|   7975 | Lycra Tops  |              5 | piece        |          70 |         30 |        300 |        175 |
+|   8865 | Skirts      |              5 | piece        |          75 |         30 |        450 |        300 |
++--------+-------------+----------------+--------------+-------------+------------+------------+------------+
+9 rows in set (0.01 sec)
+
+mysql> select Description from product_master;
++-------------+
+| Description |
++-------------+
+| T-shirt     |
+| shirt       |
+| jeans       |
+| jeans       |
+| trousers    |
+| pullovers   |
+| denimshirt  |
+| Lycra Tops  |
+| Skirts      |
++-------------+
+9 rows in set (0.00 sec)
+
+mysql> select name from client_master where city=mumbai;
+ERROR 1054 (42S22): Unknown column 'mumbai' in 'where clause'
+mysql> select name from client_master where city = mumbai;
+ERROR 1054 (42S22): Unknown column 'mumbai' in 'where clause'
+mysql> select name from client_master where city = mumbai;
+ERROR 1054 (42S22): Unknown column 'mumbai' in 'where clause'
+mysql> select name from client_master where city = 'mumbai';
++---------------+
+| name          |
++---------------+
+| Chhaya Bankar |
++---------------+
+1 row in set (0.01 sec)
+
+mysql> insert into client_master values(0004,'Ashwini Joshi','Banglore',560001,'Karnataka',0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select name from client_master where city = 'mumbai';
++---------------+
+| name          |
++---------------+
+| Chhaya Bankar |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> insert into client_master values(0007,'Ashwini Joshi','mumbai',560001,'maharastr',0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select name from client_master where city = 'mumbai';
++---------------+
+| name          |
++---------------+
+| Chhaya Bankar |
+| Ashwini Joshi |
++---------------+
+2 rows in set (0.00 sec)
+
+mysql> update client_master set city='banglore' where  client_no=5;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update client_master set Baldue=1000 where  client_no=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update product_master set cost_price=950 where  pro_no=7868;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from salesman_master;
++-------------+-------+------+---------+--------+---------+------------+--------+----------+----------+---------+
+| salesman_no | name  | add1 | add2    | city   | pincode | state      | salAmt | TgtToGet | YtdSales | Remarks |
++-------------+-------+------+---------+--------+---------+------------+--------+----------+----------+---------+
+| 1           | Aman  | A/14 | Worli   | Mumbai |  400002 | maharashtr |   3000 |      100 |       50 | Good    |
+| 2           | omkar | 65   | Nariman | Mumbai |  400001 | maharashtr |   3000 |      200 |      100 | Good    |
++-------------+-------+------+---------+--------+---------+------------+--------+----------+----------+---------+
+2 rows in set (0.02 sec)
+
+mysql> update salesman_master set city='pune';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from salesman_master;
++-------------+-------+------+---------+------+---------+------------+--------+----------+----------+---------+
+| salesman_no | name  | add1 | add2    | city | pincode | state      | salAmt | TgtToGet | YtdSales | Remarks |
++-------------+-------+------+---------+------+---------+------------+--------+----------+----------+---------+
+| 1           | Aman  | A/14 | Worli   | pune |  400002 | maharashtr |   3000 |      100 |       50 | Good    |
+| 2           | omkar | 65   | Nariman | pune |  400001 | maharashtr |   3000 |      200 |      100 | Good    |
++-------------+-------+------+---------+------+---------+------------+--------+----------+----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> update salesman_master set salesman_no='s00001' where salesman_no=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update salesman_master set salesman_no='s00002' where salesman_no=2;
+ERROR 1292 (22007): Truncated incorrect DOUBLE value: 's00001'
+mysql> select * from salesman_master;
++-------------+-------+------+---------+------+---------+------------+--------+----------+----------+---------+
+| salesman_no | name  | add1 | add2    | city | pincode | state      | salAmt | TgtToGet | YtdSales | Remarks |
++-------------+-------+------+---------+------+---------+------------+--------+----------+----------+---------+
+| s00001      | Aman  | A/14 | Worli   | pune |  400002 | maharashtr |   3000 |      100 |       50 | Good    |
+| 2           | omkar | 65   | Nariman | pune |  400001 | maharashtr |   3000 |      200 |      100 | Good    |
++-------------+-------+------+---------+------+---------+------------+--------+----------+----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> update salesman_master set salesman_no='S00002' where salesman_no=2;
+ERROR 1292 (22007): Truncated incorrect DOUBLE value: 's00001'
+mysql> delete from salesman_master where pincode=400001;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from salesman_master;
++-------------+------+------+-------+------+---------+------------+--------+----------+----------+---------+
+| salesman_no | name | add1 | add2  | city | pincode | state      | salAmt | TgtToGet | YtdSales | Remarks |
++-------------+------+------+-------+------+---------+------------+--------+----------+----------+---------+
+| s00001      | Aman | A/14 | Worli | pune |  400002 | maharashtr |   3000 |      100 |       50 | Good    |
++-------------+------+------+-------+------+---------+------------+--------+----------+----------+---------+
+1 row in set (0.00 sec)
+
+mysql> insert into salesman_master values(S00002,'omkar','65','Nariman','Mumbai',400001,'maharashtr',3000,200,100,'Good');
+ERROR 1054 (42S22): Unknown column 'S00002' in 'field list'
+mysql> insert into salesman_master values(S00003,'Raj','p-7','Bandra','Mumbai',400032,'maharashtr',3000,200,100,'Good');
+ERROR 1054 (42S22): Unknown column 'S00003' in 'field list'
+mysql> insert into salesman_master values(S00004,'Ashish','A/5','juhu','Mumbai',400044,'maharashtr',3500,200,150,'Good');
+ERROR 1054 (42S22): Unknown column 'S00004' in 'field list'
+mysql> insert into salesman_master values(S00002,'omkar','65','Nariman','Mumbai',400001,'maharashtr',3000,200,100,'Good');
+ERROR 1054 (42S22): Unknown column 'S00002' in 'field list'
+mysql> insert into salesman_master values('S00002','omkar','65','Nariman','Mumbai',400001,'maharashtr',3000,200,100,'Good');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into salesman_master values('S00003','Raj','p-7','Bandra','Mumbai',400032,'maharashtr',3000,200,100,'Good');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into salesman_master values('S00004','Ashish','A/5','juhu','Mumbai',400044,'maharashtr',3500,200,150,'Good');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from salesman_master;
++-------------+--------+------+---------+--------+---------+------------+--------+----------+----------+---------+
+| salesman_no | name   | add1 | add2    | city   | pincode | state      | salAmt | TgtToGet | YtdSales | Remarks |
++-------------+--------+------+---------+--------+---------+------------+--------+----------+----------+---------+
+| s00001      | Aman   | A/14 | Worli   | pune   |  400002 | maharashtr |   3000 |      100 |       50 | Good    |
+| S00002      | omkar  | 65   | Nariman | Mumbai |  400001 | maharashtr |   3000 |      200 |      100 | Good    |
+| S00003      | Raj    | p-7  | Bandra  | Mumbai |  400032 | maharashtr |   3000 |      200 |      100 | Good    |
+| S00004      | Ashish | A/5  | juhu    | Mumbai |  400044 | maharashtr |   3500 |      200 |      150 | Good    |
++-------------+--------+------+---------+--------+---------+------------+--------+----------+----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> delete from salesman_master where salAmt=3500;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> delete from product_master where qty_on_hand=100;
+Query OK, 3 rows affected (0.01 sec)
+
+mysql> delete from client_master where sat=Tamilnadu;
+ERROR 1054 (42S22): Unknown column 'sat' in 'where clause'
+mysql> delete from client_master where sate=Tamilnadu;
+ERROR 1054 (42S22): Unknown column 'Tamilnadu' in 'where clause'
+mysql> delete from client_master where sate='Tamilnadu';
+Query OK, 1 row affected (0.01 sec)
