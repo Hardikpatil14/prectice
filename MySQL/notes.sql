@@ -855,6 +855,105 @@ create table student7(
     id int,
     name varchar(10),
     contectNO numeric(10),
-    cours_id int,
+    course_id int,
     constraint pk_stud_id primary key(id),
-    constraint fk_stud_course_id foreign key(cours_id) references course(cours_id));
+    constraint fk_stud_course_id foreign key(course_id) references course(course_id));
+
+    -- 25/8/24 CLASS WOEK
+    mysql> insert into course values(101,'PHP',3000,'3years');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into course values(102,'JS',2000,'1y');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into course values(103,'.NET',2500,'2y');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course values(104,'PYTHON',3500,'2y');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student7 values(1,'HARDIK',3658957510,101);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student7 values(2,'DHIRAJ',36589510,102);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student7 values(3,'HARSHAL',36589510,104);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student7 values(4,'ANKIT',36589510,103);
+Query OK, 1 row affected (0.01 sec)
+
+
+mysql> select*from course;
++----------+------------+------+-----------+
+| cours_id | course_des | fees | dueration |
++----------+------------+------+-----------+
+|      101 | PHP        | 3000 | 3years    |
+|      102 | JS         | 2000 | 1y        |
+|      103 | .NET       | 2500 | 2y        |
+|      104 | PYTHON     | 3500 | 2y        |
++----------+------------+------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select*from student7;
++----+---------+------------+----------+
+| id | name    | contectNO  | cours_id |
++----+---------+------------+----------+
+|  1 | HARDIK  | 3658957510 |      101 |
+|  2 | DHIRAJ  |   36589510 |      102 |
+|  3 | HARSHAL |   36589510 |      104 |
+|  4 | ANKIT   |   36589510 |      103 |
++----+---------+------------+----------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+-- JOIN QUERY SUNDAY 
+
+
+
+
+select * from student7,course
+where student7.course_id = course.course_id;
+
+select student7.name,course.course_des,course.fees from student7,course
+where student7.course_id = course.course_id;
+
+select st.name,cs.course_des,cs.fees from student7 st,course cs
+where st.course_id = cs.course_id;
+
+ select student7.name,course.course_des,course.fees from student7,course
+    -> where student7.course_id = course.course_id;
+
+    
++--------+------------+------+
+| name   | course_des | fees |
++--------+------------+------+
+| HARDIK | PHP        | 3000 |
+| CXV    | JS         | 2000 |
+| DGDG   | .NET       | 2000 |
+| TRTR   | .NET       | 2000 |
+| RRR    | PYTHON     | 1000 |
++--------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> select st.name,cs.course_des,cs.fees from student7 st,course cs
+    -> where st.course_id = cs.course_id;
++--------+------------+------+
+| name   | course_des | fees |
++--------+------------+------+
+| HARDIK | PHP        | 3000 |
+| CXV    | JS         | 2000 |
+| DGDG   | .NET       | 2000 |
+| TRTR   | .NET       | 2000 |
+| RRR    | PYTHON     | 1000 |
++--------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql>
